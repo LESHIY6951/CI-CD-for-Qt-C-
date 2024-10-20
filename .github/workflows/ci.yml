@@ -26,6 +26,9 @@ jobs:
 
     - name: Verify Qt installation
       run: qmake -v
+    
+    - name: List project files
+      run: ls -la
 
     - name: Build the Qt project
       run: |
