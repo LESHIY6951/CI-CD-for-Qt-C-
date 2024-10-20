@@ -24,9 +24,12 @@ jobs:
         export DISPLAY=:99.0
         Xvfb :99 -screen 0 1024x768x16 &
 
+    - name: Verify Qt installation
+      run: qmake -v
+
     - name: Build the Qt project
       run: |
-        qmake
+        qmake ONIT.pro
         make
 
     - name: Run the Qt application
