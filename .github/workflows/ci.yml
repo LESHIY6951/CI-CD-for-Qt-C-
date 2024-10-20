@@ -1,10 +1,7 @@
 name: CI for Qt Project with GUI
 
-on:
-  push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +9,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      with:
+        ref: develop
 
     - name: Set up Qt
       run: |
@@ -20,13 +19,11 @@ jobs:
         libqt5widgets5 libqt5gui5 libqt5sql5 libqt5sql5-psql \
         libgl1-mesa-dev libgl1-mesa-glx postgresql-client \
         xauth x11-apps
-
     - name: Set up X virtual framebuffer
       run: |
         sudo apt-get install -y x11vnc xvfb
         export DISPLAY=:99.0
         Xvfb :99 -screen 0 1024x768x16 &
-
     - name: Verify Qt installation
       run: qmake -v
     
@@ -37,7 +34,6 @@ jobs:
       run: |
         qmake ONIT.pro
         make
-
     - name: Run the Qt application
       run: |
         ./ONIT
