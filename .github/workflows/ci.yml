@@ -2,12 +2,9 @@ name: CI for Qt Project with GUI
 
 on:
   push:
-    branches:
-      - develop
+    branches: [ "develop" ]
   pull_request:
-    branches:
-      - develop
-
+    branches: [ "develop" ]
 jobs:
   build:
     runs-on: ubuntu-latest
