@@ -1,6 +1,12 @@
 name: CI for Qt Project with GUI
 
-on: [push]
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
 
 jobs:
   build:
