@@ -25,6 +25,7 @@ class MainDashBoard : public QMainWindow
 public:
     MainDashBoard(QWidget *parent = nullptr);
     ~MainDashBoard();
+    void Check();
 
 private slots:
     void on_AddButton_2_clicked();
@@ -38,7 +39,6 @@ private:
     QSqlDatabase db;
     CheckCD cd;
     void RefreshTable();
-    void Check();
     //QSqlTableModel *model = new QSqlTableModel(this);
 };
 #endif // MAINDASHBOARD_H

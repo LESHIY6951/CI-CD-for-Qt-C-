@@ -13,7 +13,6 @@ MainDashBoard::MainDashBoard(QWidget *parent)
     db.setPassword("qpalzm321");
     db.open();
     RefreshTable();
-    Check();
 }
 
 MainDashBoard::~MainDashBoard()
