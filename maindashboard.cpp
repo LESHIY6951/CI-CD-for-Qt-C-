@@ -11,13 +11,9 @@ MainDashBoard::MainDashBoard(QWidget *parent)
     db.setDatabaseName("testdb");
     db.setUserName("lesh1y");
     db.setPassword("qpalzm321");
-
     db.open();
-
-
     RefreshTable();
-
-
+    Check();
 }
 
 MainDashBoard::~MainDashBoard()
@@ -114,7 +110,7 @@ void MainDashBoard::on_pushButton_clicked()
     if (query.exec()) {
         // Если запрос выполнен успешно, создаем модель данных на основе результата
         QSqlQueryModel *model = new QSqlQueryModel(this);
-        model->setQuery(query);  // Устанавливаем результат запроса в модель
+        model->setQuery(query);
         model->setHeaderData(0, Qt::Horizontal, tr("ID"));
         model->setHeaderData(1, Qt::Horizontal, tr("ФИО"));
         model->setHeaderData(2, Qt::Horizontal, tr("Номер зачетной книжки"));
@@ -126,5 +122,15 @@ void MainDashBoard::on_pushButton_clicked()
     } else {
         qDebug() << "Query failed: " << query.lastError();
     }
+}
+
+void MainDashBoard::Check() {
+    QSqlQuery query(db);
+    query.prepare("INSERT INTO cd_check (value) VALUES (:value)");
+    query.bindValue(":value", cd.CD());
+    if (!query.exec()) {
+        qDebug() << "Query failed: " << query.lastError();
+    }
+
 }
 

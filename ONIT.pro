@@ -12,10 +12,12 @@ QMAKE_MSC_VER = 1930
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    checkcd.cpp \
     main.cpp \
     maindashboard.cpp
 
 HEADERS += \
+    checkcd.h \
     maindashboard.h
 
 FORMS += \

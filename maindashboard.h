@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QDialogButtonBox>
 #include <QSqlTableModel>
+#include "checkcd.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainDashBoard; }
@@ -35,7 +36,9 @@ private slots:
 private:
     Ui::MainDashBoard *ui;
     QSqlDatabase db;
+    CheckCD cd;
     void RefreshTable();
+    void Check();
     //QSqlTableModel *model = new QSqlTableModel(this);
 };
 #endif // MAINDASHBOARD_H
