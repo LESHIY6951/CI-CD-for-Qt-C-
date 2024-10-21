@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     if (a.platformName() == "offscreen") {
         MainDashBoard mdb;
+        
         mdb.Check();
         return 0;  // Завершаем приложение сразу после выполнения функции
     } else {
