@@ -4,5 +4,5 @@ CheckCD::CheckCD() {}
 
 QString CheckCD::CD () {
 
-    return "Success";
+    return "SUPER";
 }
